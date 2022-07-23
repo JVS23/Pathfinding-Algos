@@ -6,7 +6,7 @@ Ohjelma ei ole oikeastaan edistynyt vielä juuri yhtään itse algoritmien osalt
 
 Opin tällä viikolla teoriaa kaikista aiheista hyvin huomattavan määrän, sekä myös eri algoritmeista reitinhakuun miettiessäni mitkä valitsen työhöni. 
 
-Tekniseltä kannalta vaikeuksia ei vielä ole tullut paljoa vastaan sillä sain vasta torstaina päätettyä aiheeni, joten tekninen toteutus on alkutekijöissä. Ehkä suurimmaksi vaikeudeksi teoriapuolella jäi IDA*:n aikavaativuuden määrittely ja sen tiivistäminen määrittelydokumenttiin. Yksi suora kysymys on myös, haittaako jos itse tiedostonimet ovat englanniksi vaikka itse projekti on suomeksi? Tiedostojen nimeäminen suomeksi tuntuu kovin syntiseltä.
+Tekniseltä kannalta vaikeuksia ei vielä ole tullut paljoa vastaan sillä sain vasta torstaina päätettyä aiheeni, joten tekninen toteutus on alkutekijöissä. Ehkä suurimmaksi vaikeudeksi teoriapuolella jäi IDA*:n aikavaativuuden määrittely ja sen tiivistäminen määrittelydokumenttiin. Yksi suora kysymys on myös, haittaako jos itse tiedostonimet ja koodi ovat englanniksi vaikka itse projekti on suomeksi? Tiedostojen nimeäminen ja koodaus suomeksi tuntuu kovin syntiseltä.
 
 Siirryn seuraavaksi itse toiminnallisuuden rakentamiseen, minkä ei pitäisi olla liian haastavaa nyt kun aiheen teoriaan on perehdytty hyvin. 
 
