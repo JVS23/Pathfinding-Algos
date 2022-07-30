@@ -6,7 +6,8 @@ Olen oppinut paljon lisää hakualgoritmien toiminnasta ja niiden optimoinnista.
 Seuraavaksi aion refaktoroida projektia sijoittamalla komponentteja lisää omiin tiedostoihinsa, jolloin unittestauksestakin tulee hieman fiksumpaa. Lisään testikattavuuden seurannan myös sen jälkeen, sillä tässä vaiheessa testaamisen laaja toteutus lisäisi turhaa työtä refaktoroinnin muodossa. Luulen saavani myös IDA*:n toimintakuntoon seuraavalla palautuksella, mutta olen vielä hieman kahden vaiheilla koitanko saada visualisoinnin ennen sen aloittamista valmiiksi. 
 
 | Pvm | Tunnit | Aihe |
+| ---         |     ---      |  --- |
 | 28.7   | 2     | IDA*:in- sekä Dijkstran algoritmeihin tutustumista hieman syvemmin |
 | 29.7   | 6     | Dijkstran algoritmin suunnittelu ja rakentelu, alustavaa keon rakentamiseen perehtymistä  |
 | 30.7   | 6    | Docstringien lisäys, koodin siistimistä, visualisoinnin suunnittelua    |
-| Yht   | 14     |    |
+| Yht    | 14     |    |
