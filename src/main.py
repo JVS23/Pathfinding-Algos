@@ -1,20 +1,21 @@
 from queue import PriorityQueue
+from graph import Graph
 
 
 def main():
 
-    class Graph:
-        def __init__(self, len_v):
-            self.v = len_v
-            self.e = [[-1 for i in range(len_v)] for j in range(len_v)]
-            self.seen = []
-
-        def add(self, start, end, weight):
-            self.e[start][end] = weight
-            self.e[end][start] = weight
-
     def dijkstra(graph, start):
-        # Väliaikainen rakenne ennen keon väsäämistä itse
+        """A function for finding the shortest path to all vertices from the starting vertix
+        using Dijkstra's algorithm.
+
+        Args:
+            graph: The graph you want to find the shortest paths in.
+            start: The starting node for the algorithm.
+
+        Returns:
+            A list of the shortest path to all of the vertices in the graph.
+        """
+        # Väliaikainen rakenne ennen keon kokoamista itse
         vert = {v: float("inf") for v in range(graph.v)}
         vert[start] = 0
 
@@ -22,7 +23,8 @@ def main():
         pq.put((0, start))
 
         while not pq.empty():
-            (dist, current) = pq.get()
+            (null, current) = pq.get()
+
             graph.seen.append(current)
 
             for next in range(graph.v):
@@ -45,13 +47,11 @@ def main():
     testGraph.add(3, 4, 6)
     testGraph.add(2, 4, 1)
 
-    print(testGraph.e)
-
     test_vertex = 0
 
     x = dijkstra(testGraph, test_vertex)
 
-    print("Dijkstra results for vertex: ", test_vertex, x)
+    print("Dijkstra results for vertex ", test_vertex, ": ", x, sep="")
 
 
 if __name__ == "__main__":
