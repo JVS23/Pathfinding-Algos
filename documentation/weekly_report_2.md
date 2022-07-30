@@ -10,4 +10,4 @@ Seuraavaksi aion refaktoroida projektia sijoittamalla komponentteja lisää omii
 | 28.7   | 2     | IDA*:in- sekä Dijkstran algoritmeihin tutustumista hieman syvemmin |
 | 29.7   | 6     | Dijkstran algoritmin suunnittelu ja rakentelu, alustavaa keon rakentamiseen perehtymistä  |
 | 30.7   | 6    | Docstringien lisäys, koodin siistimistä, visualisoinnin suunnittelua    |
-| Yht    | 14     |    |
+| Yht.    | 14     |    |
