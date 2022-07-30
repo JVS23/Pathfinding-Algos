@@ -2,7 +2,7 @@ import unittest
 from graph import Graph
 from algorithms import Algos
 
-# Alustava unittestaus, siistitään + tehdään käytännölliseksi ensipalautukseen
+# Alustava unittestaus, siistitään + tehdään käytännölliseksi seuraavaan palautukseen
 
 
 class TestingGraph(unittest.TestCase):
