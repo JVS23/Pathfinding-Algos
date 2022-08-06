@@ -2,9 +2,20 @@ from queue import PriorityQueue
 
 
 class Algos():
+    """The algorithms in this class are used for testing the raw algorithms, instead of
+    the ones in main, because the accuracy of the  statistics made with
+    those would be compromised due to the added processing of pygame.
+    These will be ran after/before the visualization with pygame on the same graphs.
+    """
 
     def __init__():
         pass
+
+    def heuristic_value(x, y):
+        (x1, y1) = x
+        (x2, y2) = y
+
+        return abs(x1 - x2) + abs(y1 - y2)
 
     def dijkstra(graph, start):
         """A function for finding the shortest path to all vertices from the starting vertix
@@ -19,7 +30,7 @@ class Algos():
         """
 
         # Väliaikainen rakenne ennen keon kokoamista itse
-        vert = {v: float("inf") for v in range(graph.v)}
+        vert = {v: float("inf") for v in range(graph.vertix)}
         vert[start] = 0
 
         pq = PriorityQueue()
@@ -30,9 +41,9 @@ class Algos():
 
             graph.seen.append(current)
 
-            for next in range(graph.v):
-                if graph.e[current][next] != -1:
-                    distance = graph.e[current][next]
+            for next in range(graph.vertix):
+                if graph.edge[current][next] != -1:
+                    distance = graph.edge[current][next]
                     if next not in graph.seen:
                         old_cost = vert[next]
                         new_cost = vert[current] + distance

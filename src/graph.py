@@ -10,8 +10,8 @@ class Graph:
             len_v: The amount of vertices assigned to the created graph.
         """
 
-        self.v = len_v
-        self.e = [[-1 for i in range(len_v)] for j in range(len_v)]
+        self.vertix = len_v
+        self.edge = [[-1 for i in range(len_v)] for j in range(len_v)]
         self.seen = []
 
     def add(self, start, end, weight):
@@ -23,5 +23,5 @@ class Graph:
             end: The second vertix to update.
             weight: Weight for the edge, set to 1 for simulating an unweighted graph.
         """
-        self.e[start][end] = weight
-        self.e[end][start] = weight
+        self.edge[start][end] = weight
+        self.edge[end][start] = weight

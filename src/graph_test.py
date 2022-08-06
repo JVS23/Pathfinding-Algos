@@ -1,6 +1,8 @@
+
 import unittest
-from graph import Graph
 from algorithms import Algos
+from graph import Graph
+
 
 # Alustava unittestaus, siistitään + tehdään käytännölliseksi seuraavaan palautukseen
 
