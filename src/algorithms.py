@@ -3,7 +3,7 @@ from queue import PriorityQueue
 
 class Algos():
     """The algorithms in this class are used for testing the raw algorithms, instead of
-    the ones in main, because the accuracy of the  statistics made with
+    the ones in main, because the accuracy of the statistics made with
     those would be compromised due to the added processing of pygame.
     These will be ran after/before the visualization with pygame on the same graphs.
     """
@@ -17,7 +17,15 @@ class Algos():
 
         return abs(x1 - x2) + abs(y1 - y2)
 
-    def dijkstra(graph, start):
+    def ida_star():
+        return 1
+
+    def save_path(self, vertex, goal):
+
+        if vertex == goal:
+            return 1
+
+    def dijkstra(graph, start, goal):
         """A function for finding the shortest path to all vertices from the starting vertix
         using Dijkstra's algorithm.
 

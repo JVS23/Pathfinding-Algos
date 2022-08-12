@@ -1,6 +1,6 @@
-# IDA* vs A* vs Dijkstra tehokkuusvertailu
+# IDA* vs Dijkstra tehokkuusvertailu
 
-IDA*:n, A*:n ja Dijkstran algoritmin tehokkuusvertailu toteutettuna Pythonilla.
+IDA*:n ja Dijkstran algoritmin tehokkuusvertailu toteutettuna Pythonilla.
 
 Tietorakenteiden ja algoritmien harjoitustyö, loppukesä 2022, Helsingin Yliopisto 
 
