@@ -35,7 +35,7 @@ def main():
     start_vertex = 0
     end_vertex = 6
 
-    print("Dijkstra's algorithm:")
+    print("Dijkstras algorithm:")
 
     x = algorithms.dijkstra(testGraph, start_vertex, end_vertex)
 
