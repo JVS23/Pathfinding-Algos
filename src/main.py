@@ -6,26 +6,34 @@ import netxfuncs as nxf
 
 def main():
 
-    testGraph = Graph(5)
+    testGraph = Graph(7)
 
     testGraph.add(0, 1, weight=2)
     testGraph.add(0, 2, weight=1)
-    testGraph.add(1, 2, weight=1)
+    testGraph.add(1, 2, weight=3)
     testGraph.add(2, 3, weight=1)
     testGraph.add(3, 4, weight=6)
     testGraph.add(2, 4, weight=1)
+    testGraph.add(1, 4, weight=3)
+    testGraph.add(3, 5, weight=2)
+    testGraph.add(5, 6, weight=2)
+    testGraph.add(4, 6, weight=5)
 
     G = nx.Graph()
 
     G.add_edge(0, 1, weight=2)
     G.add_edge(0, 2, weight=1)
-    G.add_edge(1, 2, weight=1)
+    G.add_edge(1, 2, weight=3)
     G.add_edge(2, 3, weight=1)
     G.add_edge(3, 4, weight=6)
     G.add_edge(2, 4, weight=1)
+    G.add_edge(1, 4, weight=3)
+    G.add_edge(3, 5, weight=2)
+    G.add_edge(5, 6, weight=2)
+    G.add_edge(4, 6, weight=5)
 
     start_vertex = 0
-    end_vertex = 4
+    end_vertex = 6
 
     print("Dijkstra's algorithm:")
 
@@ -46,13 +54,6 @@ def main():
 
     """
 
-
-
-
-
-    print("Route for NetworkX A* to node", end_vertex, ":")
-    print(nx.astar_path(G, start_vertex, end_vertex))
-    nxf.visualize_nx_astar(G, start_vertex, end_vertex)
 """
 
 
