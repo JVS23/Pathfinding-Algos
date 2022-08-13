@@ -6,8 +6,16 @@ Tietorakenteiden ja algoritmien harjoitustyö, loppukesä 2022, Helsingin Yliopi
 
 [Määrittelydokumentti](documentation/def.md)
 
+[Toteutusdokumentti](documentation/implementation.md)
+
+[Käyttöohje](documentation/manual.md)
+
 [Viikkoraportti 1](documentation/weekly_report_1.md)
 
 [Viikkoraportti 2](documentation/weekly_report_2.md)
 
 [Viikkoraportti 3](documentation/weekly_report_3.md)
+
+[Viikkoraportti 4](documentation/weekly_report_4.md)
+
+

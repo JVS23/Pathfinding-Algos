@@ -10,7 +10,7 @@ class Graph:
             len_v: The amount of vertices assigned to the created graph.
         """
 
-        self.vertix = len_v
+        self.vertices = len_v
         self.edge = [[-1 for i in range(len_v)] for j in range(len_v)]
         self.seen = []
 

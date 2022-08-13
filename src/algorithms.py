@@ -1,61 +1,100 @@
 from queue import PriorityQueue
 
 
-class Algos():
-    """The algorithms in this class are used for testing the raw algorithms, instead of
-    the ones in main, because the accuracy of the statistics made with
-    those would be compromised due to the added processing of pygame.
-    These will be ran after/before the visualization with pygame on the same graphs.
+def dijkstra(graph, start, goal):
+    """A function for finding the shortest path to all vertices from the starting vertices
+    using Dijkstra's algorithm.
+
+    Args:
+        graph: The graph you want to find the shortest paths in.
+        start: The starting vertix for the algorithm.
+
+    Returns:
+        A list of the shortest path to all of the vertices in the graph.
     """
 
-    def __init__():
-        pass
+    # Väliaikainen rakenne ennen keon kokoamista itse
 
-    def heuristic_value(x, y):
-        (x1, y1) = x
-        (x2, y2) = y
+    distances = {v: float("inf") for v in range(graph.vertices)}
+    distances[start] = 0
 
-        return abs(x1 - x2) + abs(y1 - y2)
+    paths = {x: None for x in range(graph.vertices)}
 
-    def ida_star():
-        return 1
+    pq = PriorityQueue()
+    pq.put((start, 0))
 
-    def save_path(self, vertex, goal):
+    while not pq.empty():
 
-        if vertex == goal:
-            return 1
+        (z, current) = pq.get()
 
-    def dijkstra(graph, start, goal):
-        """A function for finding the shortest path to all vertices from the starting vertix
-        using Dijkstra's algorithm.
+        graph.seen.append(current)
 
-        Args:
-            graph: The graph you want to find the shortest paths in.
-            start: The starting node for the algorithm.
+        for neighbor in range(graph.vertices):
+            if graph.edge[current][neighbor] != -1:
+                distance = graph.edge[current][neighbor]
+                if neighbor not in graph.seen:
+                    old_cost = distances[neighbor]
+                    new_cost = distances[current] + distance
 
-        Returns:
-            A list of the shortest path to all of the vertices in the graph.
-        """
+                    if new_cost < old_cost:
 
-        # Väliaikainen rakenne ennen keon kokoamista itse
-        vert = {v: float("inf") for v in range(graph.vertix)}
-        vert[start] = 0
+                        pq.put((new_cost, neighbor))
+                        distances[neighbor] = new_cost
 
-        pq = PriorityQueue()
-        pq.put((0, start))
+    return distances
 
-        while not pq.empty():
-            (null, current) = pq.get()
 
-            graph.seen.append(current)
+def heuristic_value(x, y):
+    return abs(x - y)
 
-            for next in range(graph.vertix):
-                if graph.edge[current][next] != -1:
-                    distance = graph.edge[current][next]
-                    if next not in graph.seen:
-                        old_cost = vert[next]
-                        new_cost = vert[current] + distance
-                        if new_cost < old_cost:
-                            pq.put((new_cost, next))
-                            vert[next] = new_cost
-        return vert
+
+def ida_star(graph, start, goal):
+    """IDA*-method, which is still work-in-progress, since it doesn't work
+    perfectly with graphs yet. Need to implement tracking of visited nodes.
+
+    Args:
+        graph : Graph-class object, which represents a graph.
+        start: The starting vertix for the algorithm.
+        goal : The goal vertix for the algorithm.
+
+    Returns:
+        integer: Returns the distance from starting node to the goal node.
+    """
+    max = heuristic_value(start, goal)
+
+    while True:
+        distance = ida_search(graph, start, goal, 0, max)
+        if distance == float("inf"):
+            return -1
+        elif distance < 0:
+            print("Found!")
+            return -distance
+        else:
+            threshold = distance
+
+
+def ida_search(graph, vertix, goal, distance, max):
+    """The actual searching method, depth-first search with heuristic values
+    to help on the path choices.
+    """
+    print("Visiting vertix " + str(vertix))
+
+    if vertix == goal:
+        return -distance
+
+    estimate = distance + heuristic_value(vertix, goal)
+    if estimate > max:
+        print("Max cost reached:" + str(estimate))
+        return estimate
+
+    min = float("inf")
+    for i in range(graph.vertices):
+        if graph.edge[vertix][i] != -1:
+            val = ida_search(graph, i, goal,
+                             distance + graph.edge[vertix][i], max)
+            if val < 0:
+                return val
+            elif val < min:
+                min = val
+
+    return min

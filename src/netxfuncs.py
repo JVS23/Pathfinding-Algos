@@ -7,7 +7,7 @@ def visualize_nx_dijkstra(graph, start, end):
     and result-comparision purposes.
 
     Args:
-        graph (_type_): Gets the dict of dicts form of the graph as input and 
+        graph: Gets the dict of dicts form of the graph as input and 
         visualizes it to a graph using (mostly) Networkx's built-in graph tools.
     """
     elarge = [(u, v)
