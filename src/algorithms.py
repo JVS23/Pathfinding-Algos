@@ -45,6 +45,15 @@ def dijkstra(graph, start, goal):
 
 
 def heuristic_value(x, y):
+    """Returns the manhattan distance for IDA* to use as a heuristic value
+
+    Args:
+        x: start 
+        y: goal
+
+    Returns:
+        Manhattan distance 
+    """
     return abs(x - y)
 
 
@@ -53,9 +62,9 @@ def ida_star(graph, start, goal):
     perfectly with graphs yet. Need to implement tracking of visited nodes.
 
     Args:
-        graph : Graph-class object, which represents a graph.
+        graph: Graph-class object, which represents a graph.
         start: The starting vertix for the algorithm.
-        goal : The goal vertix for the algorithm.
+        goal: The goal vertix for the algorithm.
 
     Returns:
         integer: Returns the distance from starting node to the goal node.
@@ -88,6 +97,7 @@ def ida_search(graph, vertix, goal, distance, max):
         return estimate
 
     min = float("inf")
+
     for i in range(graph.vertices):
         if graph.edge[vertix][i] != -1:
             val = ida_search(graph, i, goal,

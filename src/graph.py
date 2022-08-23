@@ -34,7 +34,7 @@ class Graph:
 
         self.nx_graph.add_edge(start, end, weight=weight)
 
-    def gen(self, size):
+    def generate(self, size):
         """A method for generating a random graph of given size with edges weighting 1-10 units.
         Works the best with sizes between 5-20.
         """

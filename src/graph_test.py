@@ -2,9 +2,7 @@
 import unittest
 import algorithms
 from graph import Graph
-
-
-# Alustava unittestaus, siistitään + tehdään käytännölliseksi kun ehtii
+import networkx
 
 
 class TestingGraph(unittest.TestCase):
@@ -35,6 +33,17 @@ class TestingGraph(unittest.TestCase):
 
         self.assertEqual({0: 0, 1: 2, 2: 1, 3: 2, 4: 2},
                          algorithms.dijkstra(self.testing_graph, 0, 4))
+
+    def test_generated_graph(self):
+        generated_graph = Graph(10)
+        generated_graph.generate(10)
+
+        dijkstra_result = algorithms.dijkstra(generated_graph, 0, 9)
+        nx_result = networkx.dijkstra_path_length(
+            generated_graph.nx_graph, 0, 9)
+
+        self.assertEqual(dijkstra_result.get(9),
+                         nx_result)
 
 
 if __name__ == '__main__':
