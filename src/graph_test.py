@@ -11,6 +11,7 @@ class TestingGraph(unittest.TestCase):
 
     def setUp(self):
         self.testing_graph = Graph(5)
+        self.testing_graph_long = Graph(7)
 
         self.testing_graph.add(0, 1, 2)
         self.testing_graph.add(0, 2, 1)
@@ -18,6 +19,17 @@ class TestingGraph(unittest.TestCase):
         self.testing_graph.add(2, 3, 1)
         self.testing_graph.add(3, 4, 6)
         self.testing_graph.add(2, 4, 1)
+
+        self.testing_graph_long.add(0, 1, weight=2)
+        self.testing_graph_long.add(0, 2, weight=1)
+        self.testing_graph_long.add(1, 2, weight=3)
+        self.testing_graph_long.add(2, 3, weight=1)
+        self.testing_graph_long.add(3, 4, weight=6)
+        self.testing_graph_long.add(2, 4, weight=1)
+        self.testing_graph_long.add(1, 4, weight=3)
+        self.testing_graph_long.add(3, 5, weight=2)
+        self.testing_graph_long.add(5, 6, weight=2)
+        self.testing_graph_long.add(4, 6, weight=5)
 
     def test_premade_graph(self):
 

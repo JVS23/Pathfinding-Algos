@@ -15,7 +15,7 @@ def visualize_nx_dijkstra(graph, start, end):
     esmall = [(u, v)
               for (u, v, d) in graph.edges(data=True) if d["weight"] <= 0.5]
 
-    pos = nx.spring_layout(graph, seed=7)
+    pos = nx.spring_layout(graph, seed=100)
 
     nx.draw(graph, pos, node_color='k')
 
@@ -33,7 +33,7 @@ def visualize_nx_dijkstra(graph, start, end):
     nx.draw_networkx_edge_labels(graph, pos, edge_labels)
 
     ax = plt.gca()
-    ax.margins(0.08)
+    ax.margins(0.01)
     plt.axis("off")
 
     plt.show()
