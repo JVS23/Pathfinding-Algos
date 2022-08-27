@@ -8,12 +8,23 @@ import time
 
 def start():
 
-    testGraph = Graph(8)
+    testGraph = Graph(6)
 
-    testGraph.generate(8)
+    testGraph.generate_nodes(6)
+    testGraph.generate_edges(6)
 
     start_vertex = 0
-    end_vertex = 7
+    end_vertex = 5
+
+    nxf.visualize_nx_astar(testGraph.nx_graph, start_vertex, end_vertex)
+
+    """
+
+    
+
+
+
+
 
     print("Dijkstras algorithm:")
 
@@ -29,7 +40,7 @@ def start():
     print(nx.dijkstra_path(testGraph.nx_graph, start_vertex, end_vertex), "Length:", (nx.dijkstra_path_length(
         testGraph.nx_graph, start_vertex, end_vertex)))
 
-    """
+
     print("\nIDA*-algorithm:")
 
     idastar_time = time.time()
@@ -37,6 +48,9 @@ def start():
     print("Ida* took:  %s seconds" % (time.time() - idastar_time))
 
     print("\nIDA* results for vertex ", end_vertex, ": ", y, sep="")
-    """
 
-    nxf.visualize_nx_dijkstra(testGraph.nx_graph, start_vertex, end_vertex)
+
+
+
+
+    """

@@ -21,7 +21,7 @@ def dijkstra(graph, start, goal):
     paths = {x: None for x in range(graph.vertices)}
 
     pq = PriorityQueue()
-    pq.put((start, 0))
+    pq.put((0, start))
 
     while not pq.empty():
 

@@ -52,7 +52,7 @@ def visualize_nx_astar(graph, start, end):
     esmall = [(u, v)
               for (u, v, d) in graph.edges(data=True) if d["weight"] <= 0.5]
 
-    pos = nx.spring_layout(graph, seed=7)
+    pos = nx.get_node_attributes(graph, 'pos')
 
     nx.draw(graph, pos, node_color='k')
 
