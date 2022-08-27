@@ -26,6 +26,7 @@ Tietorakenteiden ja algoritmien harjoitustyö, loppukesä 2022, Helsingin Yliopi
 
 [Viikkoraportti 5](documentation/weekly_report_5.md)
 
+[Viikkoraportti 6](documentation/weekly_report_6.md)
 
 
 
