@@ -8,49 +8,34 @@ import time
 
 def start():
 
-    testGraph = Graph(6)
+    testGraph = Graph(10)
 
-    testGraph.generate_nodes(6)
-    testGraph.generate_edges(6)
+    testGraph.generate_nodes(10)
+    testGraph.generate_edges(10)
 
     start_vertex = 0
-    end_vertex = 5
-
-    nxf.visualize_nx_astar(testGraph.nx_graph, start_vertex, end_vertex)
-
-    """
-
-    
-
-
-
-
+    end_vertex = 9
 
     print("Dijkstras algorithm:")
 
-    # dijkstra_time = time.time()
+    dijkstra_time = time.time()
     dijkstra_result = algorithms.dijkstra(testGraph, start_vertex, end_vertex)
 
-    # print("Dijkstra took:  %s seconds" % (time.time() - dijkstra_time))
+    print("Dijkstra took:  %s seconds" % (time.time() - dijkstra_time))
 
     print("\nDijkstra result for vertex ",
-          start_vertex, " to ", end_vertex, ": ", dijkstra_result.get(end_vertex), sep="")
+          start_vertex, " to ", end_vertex, ": ", round(dijkstra_result.get(end_vertex), 1), sep="")
 
     print("\nRoute for NetworkX Dijkstra to node", end_vertex, ":")
-    print(nx.dijkstra_path(testGraph.nx_graph, start_vertex, end_vertex), "Length:", (nx.dijkstra_path_length(
-        testGraph.nx_graph, start_vertex, end_vertex)))
+    print(nx.dijkstra_path(testGraph.nx_graph, start_vertex, end_vertex), "Length:", round((nx.dijkstra_path_length(
+        testGraph.nx_graph, start_vertex, end_vertex)), 1))
 
+    nxf.visualize_nx_astar(testGraph.nx_graph, start_vertex, end_vertex)
 
     print("\nIDA*-algorithm:")
 
     idastar_time = time.time()
     y = algorithms.ida_star(testGraph, start_vertex, end_vertex)
-    print("Ida* took:  %s seconds" % (time.time() - idastar_time))
+    print("IDA* took:  %s seconds" % (time.time() - idastar_time))
 
     print("\nIDA* results for vertex ", end_vertex, ": ", y, sep="")
-
-
-
-
-
-    """

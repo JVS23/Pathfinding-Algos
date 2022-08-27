@@ -1,4 +1,5 @@
 from queue import PriorityQueue
+import math
 
 
 def dijkstra(graph, start, goal):
@@ -10,15 +11,15 @@ def dijkstra(graph, start, goal):
         start: The starting vertix for the algorithm.
 
     Returns:
-        A list of the shortest path to all of the vertices in the graph.
+        A list of the shortest path to all of the vertices_amount in the graph.
     """
 
     # Väliaikainen rakenne ennen keon kokoamista itse
 
-    distances = {v: float("inf") for v in range(graph.vertices)}
+    distances = {v: float("inf") for v in range(graph.vertices_amount)}
     distances[start] = 0
 
-    paths = {x: None for x in range(graph.vertices)}
+    paths = {x: None for x in range(graph.vertices_amount)}
 
     pq = PriorityQueue()
     pq.put((0, start))
@@ -29,7 +30,7 @@ def dijkstra(graph, start, goal):
 
         graph.seen.append(current)
 
-        for neighbor in range(graph.vertices):
+        for neighbor in range(graph.vertices_amount):
             if graph.edge[current][neighbor] != -1:
                 distance = graph.edge[current][neighbor]
                 if neighbor not in graph.seen:
@@ -44,17 +45,20 @@ def dijkstra(graph, start, goal):
     return distances
 
 
-def heuristic_value(x, y):
-    """Returns the manhattan distance for IDA* to use as a heuristic value
+def heuristic_value(x1, y1, x2, y2):
+    """Returns the euclidean distance for IDA* to use as a heuristic value
 
     Args:
         x: start 
         y: goal
 
     Returns:
-        Manhattan distance 
+        Euclidean distance
     """
-    return abs(x - y)
+
+    weight = math.sqrt(((x2-x1)
+                        ** 2 + (y2 - y1)**2))
+    return weight
 
 
 def ida_star(graph, start, goal):
@@ -63,13 +67,14 @@ def ida_star(graph, start, goal):
 
     Args:
         graph: Graph-class object, which represents a graph.
-        start: The starting vertix for the algorithm.
-        goal: The goal vertix for the algorithm.
+        start: The starting node for the algorithm.
+        goal: The goal node for the algorithm.
 
     Returns:
         integer: Returns the distance from starting node to the goal node.
     """
-    max = heuristic_value(start, goal)
+    max = heuristic_value(
+        graph.nodes[start][0], graph.nodes[start][1], graph.nodes[goal][0], graph.nodes[goal][1])
 
     while True:
         distance = ida_search(graph, start, goal, 0, max)
@@ -91,14 +96,16 @@ def ida_search(graph, vertix, goal, distance, max):
     if vertix == goal:
         return -distance
 
-    estimate = distance + heuristic_value(vertix, goal)
+    estimate = distance + \
+        heuristic_value(graph.nodes[vertix][0], graph.nodes[vertix]
+                        [1], graph.nodes[goal][0], graph.nodes[goal][1])
     if estimate > max:
         print("Max cost reached:" + str(estimate))
         return estimate
 
     min = float("inf")
 
-    for i in range(graph.vertices):
+    for i in range(graph.vertices_amount):
         if graph.edge[vertix][i] != -1:
             val = ida_search(graph, i, goal,
                              distance + graph.edge[vertix][i], max)

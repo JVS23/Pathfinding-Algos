@@ -35,7 +35,7 @@ class Graph:
         weight = math.sqrt(((self.nodes[end][0]-self.nodes[start][0])
                            ** 2 + (self.nodes[end][1] - self.nodes[start][1])**2))
 
-        rounded_weight = round(weight, 2)
+        rounded_weight = round(weight, 1)
         self.edge[start][end] = rounded_weight
         self.edge[end][start] = rounded_weight
 
