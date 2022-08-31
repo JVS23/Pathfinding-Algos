@@ -49,7 +49,7 @@ def heuristic_value(x1, y1, x2, y2):
     """Returns the euclidean distance for IDA* to use as a heuristic value
 
     Args:
-        x: start 
+        x: current 
         y: goal
 
     Returns:
@@ -62,8 +62,7 @@ def heuristic_value(x1, y1, x2, y2):
 
 
 def ida_star(graph, start, goal):
-    """IDA*-method, which is still work-in-progress, since it doesn't work
-    perfectly with graphs yet. Need to implement tracking of visited nodes.
+    """IDA*- pathfinding algorithm.
 
     Args:
         graph: Graph-class object, which represents a graph.
@@ -75,6 +74,9 @@ def ida_star(graph, start, goal):
     """
     max = heuristic_value(
         graph.nodes[start][0], graph.nodes[start][1], graph.nodes[goal][0], graph.nodes[goal][1])
+    print("max = ", max)
+
+    visited_nodes = []
 
     while True:
         distance = ida_search(graph, start, goal, 0, max)
@@ -84,12 +86,12 @@ def ida_star(graph, start, goal):
             print("Found!")
             return -distance
         else:
-            threshold = distance
+            max = distance
 
 
 def ida_search(graph, vertix, goal, distance, max):
     """The actual searching method, depth-first search with heuristic values
-    to help on the path choices.
+    to choose optimal paths.
     """
     print("Visiting vertix " + str(vertix))
 
@@ -99,6 +101,7 @@ def ida_search(graph, vertix, goal, distance, max):
     estimate = distance + \
         heuristic_value(graph.nodes[vertix][0], graph.nodes[vertix]
                         [1], graph.nodes[goal][0], graph.nodes[goal][1])
+    print(estimate)
     if estimate > max:
         print("Max cost reached:" + str(estimate))
         return estimate

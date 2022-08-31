@@ -1,4 +1,3 @@
-from cgi import test
 from graph import Graph
 import algorithms
 import networkx as nx
@@ -7,35 +6,79 @@ import time
 
 
 def start():
+    while True:
+        # Choose graph node amount, 5-10 for easily readable graphs, more for better testing of algorithms
+        print("Choose graph size (Node amount):")
 
-    testGraph = Graph(10)
+        node_amount = int(input())
 
-    testGraph.generate_nodes(10)
-    testGraph.generate_edges(10)
+        testGraph = Graph(node_amount)
 
-    start_vertex = 0
-    end_vertex = 9
+        testGraph.generate_nodes(node_amount)
+        testGraph.generate_edges(node_amount)
 
-    print("Dijkstras algorithm:")
+        # Choose start and end node
 
-    dijkstra_time = time.time()
-    dijkstra_result = algorithms.dijkstra(testGraph, start_vertex, end_vertex)
+        print("Choose the indexes of start and end nodes:")
+        print("Start node: ")
+        start_node = int(input())
+        print("End node: ")
+        end_node = int(input())
 
-    print("Dijkstra took:  %s seconds" % (time.time() - dijkstra_time))
+        while True:
+            print(
+                "Choose which algorithm to use, Dijkstra = 1 or IDA* = 2, change start/end nodes = 3, new graph = 4, quit = 5")
+            chosen_function = int(input())
 
-    print("\nDijkstra result for vertex ",
-          start_vertex, " to ", end_vertex, ": ", round(dijkstra_result.get(end_vertex), 1), sep="")
+            if chosen_function == 1:
 
-    print("\nRoute for NetworkX Dijkstra to node", end_vertex, ":")
-    print(nx.dijkstra_path(testGraph.nx_graph, start_vertex, end_vertex), "Length:", round((nx.dijkstra_path_length(
-        testGraph.nx_graph, start_vertex, end_vertex)), 1))
+                print("Dijkstras algorithm:")
 
-    nxf.visualize_nx_astar(testGraph.nx_graph, start_vertex, end_vertex)
+                dijkstra_time = time.time()
+                dijkstra_result = algorithms.dijkstra(
+                    testGraph, start_node, end_node)
 
-    print("\nIDA*-algorithm:")
+                print("Dijkstra took:  %s seconds" %
+                      (time.time() - dijkstra_time))
 
-    idastar_time = time.time()
-    y = algorithms.ida_star(testGraph, start_vertex, end_vertex)
-    print("IDA* took:  %s seconds" % (time.time() - idastar_time))
+                print("\nDijkstra result for vertex ",
+                      start_node, " to ", end_node, ": ", round(dijkstra_result.get(end_node), 1), sep="")
 
-    print("\nIDA* results for vertex ", end_vertex, ": ", y, sep="")
+                print("\nRoute for NetworkX Dijkstra to node", end_node, ":")
+                print(nx.dijkstra_path(testGraph.nx_graph, start_node, end_node), "Length:", round((nx.dijkstra_path_length(
+                    testGraph.nx_graph, start_node, end_node)), 1))
+
+                nxf.visualize_nx_dijkstra(
+                    testGraph.nx_graph, start_node, end_node)
+
+            if chosen_function == 2:
+
+                print("\nIDA*-algorithm:")
+
+                idastar_time = time.time()
+                y = algorithms.ida_star(
+                    testGraph, start_node, end_node)
+                print("IDA* took:  %s seconds" % (time.time() - idastar_time))
+
+                print("\nIDA* results for vertex ",
+                      end_node, ": ", y, sep="")
+
+                nxf.visualize_nx_astar(
+                    testGraph.nx_graph, start_node, end_node)
+
+            if chosen_function == 3:
+                print("Choose the indexes of start and end nodes:")
+                print("Start node: ")
+                start_node = input()
+                start_node = int(start_node)
+                print("End node: ")
+                end_node = input()
+                end_node = int(end_node)
+
+            if chosen_function == 4:
+                break
+            if chosen_function == 5:
+                print("\nThanks for using my program!")
+                break
+        if chosen_function == 5:
+            break

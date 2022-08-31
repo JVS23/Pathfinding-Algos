@@ -22,7 +22,7 @@ class Graph:
         self.seen = []
         self.nx_graph = nx.Graph()
 
-    def add_edgex(self, start, end):
+    def add_generated_edge(self, start, end):
         """A method for adding edges between vertices. The vertices are numbered by the indexes at this stage.
         The start/end order doesn't matter since it's an undirected graph.
 
@@ -59,7 +59,8 @@ class Graph:
 
     def generate_edges(self, size):
         """A method for generating a random graph of given size with edges weighting 1-10 units.
-        Works the best with sizes between 5-20.
+        Visually works the best with sizes between 5-20, for algorithm testing use larger sizes.
+        Chance for extra edges, "shortcuts", to appear can be modified.
         """
 
         for i in range(size):
@@ -69,12 +70,13 @@ class Graph:
             xpos = random.randint(1, 100)
             ypos = random.randint(1, 100)
 
-            self.add_edgex(i, i+1)
+            self.add_generated_edge(i, i+1)
             self.nx_graph.add_edge(i, i+1)
 
-            if chance >= 6:
+            # Chance for an shortcut between current and a random node to appear
+            if chance >= 1:
                 shortcut_node = random.randint(0, size - 1)
                 while shortcut_node == i:
                     shortcut_node = random.randint(0, size - 1)
-                self.add_edgex(i, shortcut_node)
+                self.add_generated_edge(i, shortcut_node)
                 self.nx_graph.add_edge(i, shortcut_node)
