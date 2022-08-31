@@ -67,16 +67,29 @@ class Graph:
             if i == size - 1:
                 return
             chance = random.randint(0, 10)
-            xpos = random.randint(1, 100)
-            ypos = random.randint(1, 100)
 
             self.add_generated_edge(i, i+1)
             self.nx_graph.add_edge(i, i+1)
 
             # Chance for an shortcut between current and a random node to appear
-            if chance >= 1:
-                shortcut_node = random.randint(0, size - 1)
-                while shortcut_node == i:
+            # Modify the for loop for more/less edges
+            for k in range(2):
+                if chance >= 1:
                     shortcut_node = random.randint(0, size - 1)
-                self.add_generated_edge(i, shortcut_node)
-                self.nx_graph.add_edge(i, shortcut_node)
+                    while shortcut_node == i:
+                        shortcut_node = random.randint(0, size - 1)
+                    self.add_generated_edge(i, shortcut_node)
+                    self.nx_graph.add_edge(i, shortcut_node)
+
+        # Option to turn on edges from all to all nodes
+        """
+        for i in range(size):
+            if i == size - 1:
+                return
+            for j in range(size):
+                if i == j:
+                    continue
+
+                self.add_generated_edge(i, j)
+                self.nx_graph.add_edge(i, j)
+        """

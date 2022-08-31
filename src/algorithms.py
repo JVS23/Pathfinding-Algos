@@ -76,8 +76,6 @@ def ida_star(graph, start, goal):
         graph.nodes[start][0], graph.nodes[start][1], graph.nodes[goal][0], graph.nodes[goal][1])
     print("max = ", max)
 
-    visited_nodes = []
-
     while True:
         distance = ida_search(graph, start, goal, 0, max)
         if distance == float("inf"):

@@ -7,4 +7,7 @@ Unittesteillä on testattu algoritmien toiminta vertaamalla generoitujen verkkoj
 itserakennetulla algoritmilla vs NetworkX:n tarjoamalla algoritmillä. Testit tarkastavat, saavatko algoritmit samat tulokset samassa verkossa. Näin ollen oman algoritmin täytyy toimia oikein, sillä suurissa verkoissa oikeaa tulosta ei saa sattumanvaraisesti.
 
 ## Test-coverage
--
+
+Coverage report:
+
+![Covreport](covreport.jpg)

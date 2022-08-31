@@ -56,12 +56,12 @@ def start():
                 print("\nIDA*-algorithm:")
 
                 idastar_time = time.time()
-                y = algorithms.ida_star(
+                ida_result = algorithms.ida_star(
                     testGraph, start_node, end_node)
                 print("IDA* took:  %s seconds" % (time.time() - idastar_time))
 
                 print("\nIDA* results for vertex ",
-                      end_node, ": ", y, sep="")
+                      end_node, ": ", ida_result, sep="")
 
                 nxf.visualize_nx_astar(
                     testGraph.nx_graph, start_node, end_node)
