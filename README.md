@@ -8,6 +8,8 @@ Tietorakenteiden ja algoritmien harjoitustyö, loppukesä 2022, Helsingin Yliopi
 
 [Toteutusdokumentti](documentation/implementation.md)
 
+[Testausdokumentti](documentation/testing.md)
+
 [Käyttöohje](documentation/manual.md)
 
 
