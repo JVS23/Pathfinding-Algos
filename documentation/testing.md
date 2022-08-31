@@ -10,4 +10,4 @@ itserakennetulla algoritmilla vs NetworkX:n tarjoamalla algoritmillä. Testit ta
 
 Coverage report:
 
-![Covreport](covreport.jpg)
+![Covreport](https://i.imgur.com/8E9sIIm.jpg)
