@@ -34,12 +34,8 @@ def start():
 
                 print("Dijkstras algorithm:")
 
-                dijkstra_time = time.time()
                 dijkstra_result = algorithms.dijkstra(
                     testGraph, start_node, end_node)
-
-                print("Dijkstra took:  %s seconds" %
-                      (time.time() - dijkstra_time))
 
                 print("\nDijkstra result for vertex ",
                       start_node, " to ", end_node, ": ", round(dijkstra_result.get(end_node), 1), sep="")
@@ -55,10 +51,10 @@ def start():
 
                 print("\nIDA*-algorithm:")
 
-                idastar_time = time.time()
+                #idastar_time = time.time()
                 ida_result = algorithms.ida_star(
                     testGraph, start_node, end_node)
-                print("IDA* took:  %s seconds" % (time.time() - idastar_time))
+                #print("IDA* took:  %s seconds" % (time.time() - idastar_time))
 
                 print("\nIDA* results for vertex ",
                       end_node, ": ", ida_result, sep="")

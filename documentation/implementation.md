@@ -4,7 +4,7 @@ Yleisrakenne on keskeneräinen, mutta tavoite on saada aikaiseksi jonkinlainen k
 
 Mahdollisia puutteita tai parannettavaa projektissa:
 
-- Melko vähäinen testien määrä, mutta tätä kompensoi se, että nämä testit epäsuorasti testaavat käytännössä kaiken ydintoiminnan ja varmistavat todenmukaiset vastaukset.
+- Melko vähäinen unittestien määrä, mutta tätä kompensoi se, että nämä testit epäsuorasti testaavat käytännössä kaiken ydintoiminnan ja varmistavat todenmukaiset vastaukset.
 - Ei kovin optimaalinen IDA*:n testaamiseen, mutta hyvin tiheissä verkoissa toimii IDA*:n kanssa riittävän hyvin.
 
 Lähteet:

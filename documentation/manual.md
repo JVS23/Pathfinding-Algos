@@ -6,4 +6,4 @@ Käynnistä sovellus main.py:llä ja tarvittaessa asenna vaaditut kirjastot netw
 
 Commandline-käyttöliittymän avulla voi luoda uusia satunnaisgeneroituja verkkoja omilla paramatreillä, sekä testata niissä Dijkstran algoritmia sekä IDA*:ia.
 
-Testaus on toistaiseksi vain unittestien muodossa, joten coveragea ei löydy.
+Testaamisen ohjeet löytyvät testausdokumentista.
