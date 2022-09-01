@@ -11,15 +11,16 @@ def dijkstra(graph, start, goal):
         start: The starting vertix for the algorithm.
 
     Returns:
-        A list of the shortest path to all of the vertices_amount in the graph.
+        A list of the shortest path to all of the nodes in the graph.
     """
 
     # Väliaikainen rakenne ennen keon kokoamista itse
 
-    distances = {v: float("inf") for v in range(graph.vertices_amount)}
+    distances = {v: float("inf") for v in range(graph.node_amount)}
     distances[start] = 0
+    previous = [[] for _ in range(graph.node_amount)]
 
-    paths = {x: None for x in range(graph.vertices_amount)}
+    path = []
 
     pq = PriorityQueue()
     pq.put((0, start))
@@ -30,7 +31,7 @@ def dijkstra(graph, start, goal):
 
         graph.seen.append(current)
 
-        for neighbor in range(graph.vertices_amount):
+        for neighbor in range(graph.node_amount):
             if graph.edge[current][neighbor] != -1:
                 distance = graph.edge[current][neighbor]
                 if neighbor not in graph.seen:
@@ -38,11 +39,24 @@ def dijkstra(graph, start, goal):
                     new_cost = distances[current] + distance
 
                     if new_cost < old_cost:
+                        previous[neighbor] = current
 
                         pq.put((new_cost, neighbor))
                         distances[neighbor] = new_cost
 
-    return distances
+    p = goal
+    path.append(p)
+
+    while True:
+        if previous[p] == start:
+            break
+
+        path.append(previous[p])
+        p = previous[p]
+    path.append(start)
+    path.reverse()
+
+    return distances, path
 
 
 def heuristic_value(x1, y1, x2, y2):
@@ -95,24 +109,28 @@ def ida_search(graph, vertix, goal, distance, max):
 
     if vertix == goal:
         return -distance
+    visited_nodes = []
 
     estimate = distance + \
         heuristic_value(graph.nodes[vertix][0], graph.nodes[vertix]
                         [1], graph.nodes[goal][0], graph.nodes[goal][1])
-    print(estimate)
+    # print(estimate)
     if estimate > max:
-        print("Max cost reached:" + str(estimate))
+        #print("Max cost reached:" + str(estimate))
         return estimate
 
     min = float("inf")
 
-    for i in range(graph.vertices_amount):
+    for i in range(graph.node_amount):
         if graph.edge[vertix][i] != -1:
-            val = ida_search(graph, i, goal,
-                             distance + graph.edge[vertix][i], max)
-            if val < 0:
-                return val
-            elif val < min:
-                min = val
+            if i not in visited_nodes:
+                visited_nodes.append(i)
+                print(i)
+                val = ida_search(graph, i, goal,
+                                 distance + graph.edge[vertix][i], max)
+                if val < 0:
+                    return val
+                elif val < min:
+                    min = val
 
     return min

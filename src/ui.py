@@ -37,10 +37,12 @@ def start():
                 dijkstra_result = algorithms.dijkstra(
                     testGraph, start_node, end_node)
 
-                print("\nDijkstra result for vertex ",
-                      start_node, " to ", end_node, ": ", round(dijkstra_result.get(end_node), 1), sep="")
+                print("\nDijkstra path length from vertex ",
+                      start_node, " to ", end_node, ": ", round(dijkstra_result[0].get(end_node), 1), sep="")
+                print("Route from selfmade Dijkstra:", dijkstra_result[1])
 
-                print("\nRoute for NetworkX Dijkstra to node", end_node, ":")
+                print(
+                    "\nRoute and path length from NetworkX Dijkstra to node", end_node, ":")
                 print(nx.dijkstra_path(testGraph.nx_graph, start_node, end_node), "Length:", round((nx.dijkstra_path_length(
                     testGraph.nx_graph, start_node, end_node)), 1))
 
