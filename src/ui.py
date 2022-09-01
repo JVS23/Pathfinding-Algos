@@ -42,7 +42,7 @@ def start():
                 print("Route from selfmade Dijkstra:", dijkstra_result[1])
 
                 print(
-                    "\nRoute and path length from NetworkX Dijkstra to node", end_node, ":")
+                    "\nRoute and path length from NetworkX Dijkstra from", start_node, "to node", end_node, ":")
                 print(nx.dijkstra_path(testGraph.nx_graph, start_node, end_node), "Length:", round((nx.dijkstra_path_length(
                     testGraph.nx_graph, start_node, end_node)), 1))
 

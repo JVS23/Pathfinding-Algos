@@ -6,6 +6,7 @@ Mahdollisia puutteita tai parannettavaa projektissa:
 
 - Melko vähäinen unittestien määrä, mutta tätä kompensoi se, että nämä testit epäsuorasti testaavat käytännössä kaiken ydintoiminnan ja varmistavat todenmukaiset vastaukset.
 - Ei kovin optimaalinen IDA*:n testaamiseen, mutta hyvin tiheissä verkoissa toimii IDA*:n kanssa riittävän hyvin.
+- UI:n kanssa hieman bugeja, mutta eivät estä pääasiallista toiminnallisuutta.
 
 Lähteet:
 

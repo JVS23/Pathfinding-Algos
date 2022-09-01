@@ -125,7 +125,6 @@ def ida_search(graph, vertix, goal, distance, max):
         if graph.edge[vertix][i] != -1:
             if i not in visited_nodes:
                 visited_nodes.append(i)
-                print(i)
                 val = ida_search(graph, i, goal,
                                  distance + graph.edge[vertix][i], max)
                 if val < 0:
