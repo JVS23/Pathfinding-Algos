@@ -17,8 +17,6 @@ def start():
         testGraph.generate_nodes(node_amount)
         testGraph.generate_edges(node_amount)
 
-        # Choose start and end node
-
         print("Choose the indexes of start and end nodes:")
         print("Start node: ")
         start_node = int(input())
