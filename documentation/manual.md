@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Käynnistä sovellus main.py:llä ja tarvittaessa asenna vaaditut kirjastot networkX ja matplotLib vaikka pipillä komennoilla:
+Käynnistä sovellus main.py:llä ja tarvittaessa asenna vaaditut moduulit, ainakin networkX ja matplotLib, esim. pipillä komennoilla:
  > pip install networkx --user
  > pip install matplotlib --user
 

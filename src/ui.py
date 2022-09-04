@@ -2,7 +2,6 @@ from graph import Graph
 import algorithms
 import networkx as nx
 import netxfuncs as nxf
-import time
 
 
 def start():
@@ -51,10 +50,8 @@ def start():
 
                 print("\nIDA*-algorithm:")
 
-                #idastar_time = time.time()
                 ida_result = algorithms.ida_star(
                     testGraph, start_node, end_node)
-                #print("IDA* took:  %s seconds" % (time.time() - idastar_time))
 
                 print("\nIDA* results for vertex ",
                       end_node, ": ", ida_result, sep="")

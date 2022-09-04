@@ -3,18 +3,17 @@ import math
 
 
 def dijkstra(graph, start, goal):
-    """A function for finding the shortest path to all vertices from the starting vertices
+    """A function for finding the shortest path to the end vertix from the starting vertices
     using Dijkstra's algorithm.
 
     Args:
         graph: The graph you want to find the shortest paths in.
         start: The starting vertix for the algorithm.
+        goal: End vertix.
 
     Returns:
         A list of the shortest path to all of the nodes in the graph.
     """
-
-    # Väliaikainen rakenne ennen keon kokoamista itse
 
     distances = {v: float("inf") for v in range(graph.node_amount)}
     distances[start] = 0
@@ -27,7 +26,7 @@ def dijkstra(graph, start, goal):
 
     while not pq.empty():
 
-        (z, current) = pq.get()
+        (val, current) = pq.get()
 
         graph.seen.append(current)
 
@@ -115,7 +114,7 @@ def ida_search(graph, vertix, goal, distance, max):
                         [1], graph.nodes[goal][0], graph.nodes[goal][1])
     # print(estimate)
     if estimate > max:
-        #print("Max cost reached:" + str(estimate))
+        # print("Max cost reached:" + str(estimate))
         return estimate
 
     min = float("inf")

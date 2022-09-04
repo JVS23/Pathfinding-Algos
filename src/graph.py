@@ -23,13 +23,14 @@ class Graph:
         self.nx_graph = nx.Graph()
 
     def add_generated_edge(self, start, end):
-        """A method for adding edges between vertices. The vertices are numbered by the indexes at this stage.
+        """A method for adding edges between vertices. Edge weights are calculated from the positions of the nodes with
+        the Euclidean distance formula.
         The start/end order doesn't matter since it's an undirected graph.
 
         Args:
             start: The first vertix to update.
             end: The second vertix to update.
-            weight: Weight for the edge, set to 1 for simulating an unweighted graph.
+            weight: Weight for the edge, calculated inside the method.
         """
 
         weight = math.sqrt(((self.nodes[end][0]-self.nodes[start][0])
@@ -42,7 +43,7 @@ class Graph:
         self.nx_graph.add_edge(start, end, weight=rounded_weight)
 
     def generate_nodes(self, size):
-        """A method for generating a random graph of given size with edges weighting 1-10 units.
+        """A method for populating a random graph with this amount of nodes.
         Works the best with sizes between 5-20.
         """
 
@@ -58,7 +59,7 @@ class Graph:
             self.nx_graph.add_node(i, pos=(xpos, ypos))
 
     def generate_edges(self, size):
-        """A method for generating a random graph of given size with edges weighting 1-10 units.
+        """A method for generating a random amount of edges between nodes.
         Visually works the best with sizes between 5-20, for algorithm testing use larger sizes.
         Chance for extra edges, "shortcuts", to appear can be modified.
         """
@@ -80,16 +81,3 @@ class Graph:
                         shortcut_node = random.randint(0, size - 1)
                     self.add_generated_edge(i, shortcut_node)
                     self.nx_graph.add_edge(i, shortcut_node)
-
-        # Option to turn on edges from all to all nodes
-        """
-        for i in range(size):
-            if i == size - 1:
-                return
-            for j in range(size):
-                if i == j:
-                    continue
-
-                self.add_generated_edge(i, j)
-                self.nx_graph.add_edge(i, j)
-        """
