@@ -12,4 +12,4 @@ Tietorakenteiden ja algoritmien harjoitustyö, loppukesä 2022, Helsingin Yliopi
 
 Esimerkki generoidusta verkosta: 
 
-![Example]([https://github.com/JVS23/Algorithm-comparision-TiRa/blob/master/documentation/example.PNG](https://github.com/JVS23/Algorithm-comparision-TiRa/blob/259b9d21174d33b951af636b2be8f9312ac12f8c/documentation/example.PNG))
+[![Example](https://github.com/JVS23/Algorithm-comparision-TiRa/blob/259b9d21174d33b951af636b2be8f9312ac12f8c/documentation/example.PNG)
