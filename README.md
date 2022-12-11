@@ -1,6 +1,6 @@
 # IDA* + Dijkstra Reitinhaku
 
-IDA*:n ja Dijkstran algoritmien avulla reitinhakua pseudosatunnaisesti generoidussa verkossa.
+IDA*:n ja Dijkstran algoritmien avulla reitinhakua halutunkokoisessa, pseudosatunnaisesti generoidussa verkossa.
 
 Tietorakenteiden ja algoritmien harjoitustyö, loppukesä 2022, Helsingin Yliopisto 
 
