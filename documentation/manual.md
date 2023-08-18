@@ -1,9 +1,6 @@
 # Käyttöohje
-
-Käynnistä sovellus main.py:llä ja tarvittaessa asenna vaaditut moduulit, ainakin networkX ja matplotLib, esim. pipillä komennoilla:
- > pip install networkx
  
- > pip install matplotlib
+ Sovelluksen voi käynnistää main.py - tiedostosta, ja dependencyt saa asennettua pipillä komennolla pip install -r requirements.txt sovelluksen juurikansiossa.
 
 Commandline-käyttöliittymän avulla voi luoda uusia satunnaisgeneroituja verkkoja omilla paramatreillä, sekä testata niissä Dijkstran algoritmia sekä IDA*:ia.
 
